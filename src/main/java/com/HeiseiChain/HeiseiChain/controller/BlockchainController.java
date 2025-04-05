@@ -201,21 +201,7 @@ public class BlockchainController {
 
             // Decrypt Data
             String decryptedJson = decryptData(requestData.encryptedData);
-            decryptedJson = decryptedJson.trim();
-            System.out.println(decryptedJson);
-
-            /**
-            String cleanedJson = decryptedJson.trim().replaceAll("[^\\x20-\\x7E]", "");
-            System.out.println(cleanedJson);
-            */
-            byte[] utf8Bytes = decryptedJson.getBytes(StandardCharsets.UTF_8);
-            String utf8String = new String(utf8Bytes, StandardCharsets.UTF_8);
-            System.out.println("UTF-8 String: " + utf8String);
-            JSONObject jsonObject = new JSONObject(utf8String);
-
-            //JSONObject jsonObject = new JSONObject(decryptedJson);
-            System.out.println("Done");
-
+            JSONObject jsonObject = new JSONObject(decryptedJson);
             String senderUsername = jsonObject.getString("senderUsername");
             String recipientUsername = jsonObject.getString("recipientUsername");
             String encryptedValue = jsonObject.getString("value");
@@ -240,6 +226,11 @@ public class BlockchainController {
             Wallet senderWallet = blockchainService.getWalletByUsername(senderUsername);
             if (senderWallet == null || senderWallet.privateKey == null) {
                 return "Error: Could not retrieve wallet or private key for sender '" + senderUsername + "'!";
+            }
+
+            Wallet recipientWallet = blockchainService.getWalletByUsername(senderUsername);
+            if (recipientWallet.role.equals("donor")) {
+                return "Error: Recipient is a donor";
             }
 
             //System.out.println(senderWallet.privateKey);
