@@ -1,7 +1,7 @@
 package com.HeiseiChain.HeiseiChain.model;
 
 import java.security.PublicKey;
-
+//UTXO - UNSPEND TRANSACTION OUTPUT
 public class UTXO {
     private String id;      // Unique identifier for the UTXO
     private PublicKey owner; // Public key of the owner of this UTXO
