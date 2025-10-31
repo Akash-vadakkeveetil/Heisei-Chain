@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Flows | Heisei-Chain</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+</head>
+<body>
+<div class="container">
+    <h1>Transaction Flow</h1>
+    <div class="mermaid">
+        sequenceDiagram
+        participant A as Hospital
+        participant B as Supplier
+        participant BC as Heisei-Chain
+        A->>B: Request medicine
+        B->>BC: Create Transaction
+        BC-->>A: Confirm and update ledger
+    </div>
+    <p><a href="run.html">Next → Run Instructions</a></p>
+</div>
+</body>
+</html>

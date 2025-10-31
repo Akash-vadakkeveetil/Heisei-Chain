@@ -2,122 +2,19 @@
 
 # Heisei-Chain Project Documentation Plan
 
-## Overview
-
-Create comprehensive documentation explaining the Heisei-Chain blockchain project - a Spring Boot-based donation and commodity tracking system. The documentation will explain what the project does, how it works architecturally, and how it's configured as a REST API layer over the original Java blockchain implementation.
-
-## Target Audience
-
-Developers or stakeholders who want to understand the complete project architecture, features, and the layering approach used to convert a standalone Java blockchain into a Spring Boot web service.
-
-## Documentation Format
-
-Comprehensive markdown document with embedded diagrams, combining:
-
-- Visual architecture diagrams
-- Written explanations of each component
-- Flow diagrams showing how features work
-- Code references with file paths and line numbers
 
 ## Current State (From Research)
 
 Research has identified:
 
-- Project is described as "Conversion of java blockchain to spring boot" (pom.xml:15)
 - Core blockchain models (Block, Transaction, Wallet, UTXO) represent original implementation
 - Spring Boot layer adds REST API, service layer, security, and web framework
 - Use case: Donation tracking with 3 roles (donors, volunteers, camp coordinators)
 - Technology: Spring Boot 3.4.1, Java 21, BouncyCastle cryptography, UTXO-based blockchain
-- In-memory storage with no external database
-
-## Desired End State
-
-A complete markdown documentation file that enables readers to:
-
-1. Understand what Heisei-Chain does (features, use cases, user roles)
-2. Understand the complete architecture (all components and relationships)
-3. Understand how the Spring Boot layer wraps the original blockchain
-4. Understand the data flow for key operations (registration, donations, transactions)
-5. Understand the cryptographic security mechanisms
-6. Know which files contain which functionality (with references)
-
-## Documentation Depth
-
-**Technical Detail Level:** Deep technical documentation
-
-- Include algorithm explanations with code snippets
-- Explain UTXO model with implementation details
-- Show cryptographic operations (ECDSA signatures, SHA-256 hashing)
-- Reference actual code from the repository
-- Explain transaction processing logic step-by-step
-
+- In-memory storage with no external database (volatile storage)
 ---
 
 ## Documentation Structure
-
-### Section 1: Project Overview
-
-**Purpose:** High-level introduction to what Heisei-Chain is
-
-**Content to include:**
-
-- Project description: Donation and commodity tracking blockchain
-- Use case: Relief/humanitarian aid distribution tracking
-- Three user roles: Donors, Volunteers, Camp Coordinators
-- Key feature: Tracks which donor contributed to each commodity through UTXO chain
-- Technology stack: Spring Boot 3.4.1, Java 21, Maven, BouncyCastle cryptography
-- Deployment: Dockerized application on port 8080
-
-**Reference files:**
-
-- `pom.xml:15` - Project description
-- `README.md` (if exists)
-- `application.properties` - Configuration
-
-### Section 2: The Layering Architecture
-
-**Purpose:** Explain how Spring Boot wraps the original Java blockchain
-
-**Content to include:**
-
-- Visual diagram showing two layers (Spring Boot layer + Original blockchain core)
-- Explanation of "Conversion of java blockchain to spring boot" concept
-- What the original project contained (core blockchain models)
-- What Spring Boot added (REST API, security, web framework)
-
-**Diagram specification:**
-
-- Create architecture diagram with two distinct layers:
-- Spring Boot Layer (blue): Controllers, Services, Configuration
-- Original Core (orange): Block, Transaction, Wallet, UTXO, Cryptography utilities
-- Show arrows indicating how Spring Boot components call original blockchain code
-
-**Key integration points:**
-
-1. `AppConfig.java` creates Blockchain as Spring bean
-2. `BlockchainService` (Spring) calls `Blockchain` methods (original)
-3. Controllers expose original blockchain operations via REST endpoints
-4. Static UTXO storage accessed by both layers
-
-**Reference files:**
-
-- `config/AppConfig.java` - Spring bean configuration
-- `service/BlockchainService.java` - Service layer integration
-- `controller/BlockchainController.java` - REST API layer
-- `model/Blockchain.java` - Original blockchain core
-
-### Section 3: REST API Endpoints
-
-**Purpose:** Document all available API endpoints and their usage
-
-**Content to include:**
-For each endpoint, specify:
-
-- HTTP method and path
-- Request format (parameters, body structure)
-- Response format (success and error cases)
-- Security mechanisms (RSA encryption/signing)
-- Example usage
 
 **Endpoints to document (from BlockchainController.java):**
 
@@ -182,9 +79,6 @@ For each endpoint, specify:
 - Digital signature verification: `verifySignature()` method at line 150-164
 - Hardcoded keys for Java backend and webapp communication
 
-**Reference files:**
-
-- `controller/BlockchainController.java` - All endpoints
 
 ### Section 4: Core Blockchain Components
 

@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>API Reference | Heisei-Chain</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+<div class="container">
+    <h1>REST API Reference</h1>
+
+    <h2>Endpoints</h2>
+    <ul>
+        <li><code>POST /api/blockchain/register</code> — Register new user (RSA encrypted payload)</li>
+        <li><code>POST /api/blockchain/transaction</code> — Create transaction between wallets</li>
+        <li><code>GET /api/blockchain/blocks</code> — View all blocks</li>
+        <li><code>GET /api/blockchain/report</code> — Generate CSV donation report</li>
+    </ul>
+
+    <h3>Example</h3>
+    <pre><code>curl -X POST http://localhost:8080/api/blockchain/register \
+-H "Content-Type: application/json" \
+-d '{"username":"Alice","publicKey":"<RSA key>"}'
+</code></pre>
+
+    <p><a href="flows.html">Next → Transaction Flow</a></p>
+</div>
+</body>
+</html>
