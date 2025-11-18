@@ -1,4 +1,3 @@
-````markdown
 <div align="center">
 
 # ⚡ HEISEI CHAIN  
@@ -238,4 +237,4 @@ For extremely detailed internal explanations, class-by-class breakdown, diagrams
 The future of disaster-relief supply auditing.
 
 </div>
-```
+
