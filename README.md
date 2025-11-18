@@ -224,17 +224,7 @@ For extremely detailed internal explanations, class-by-class breakdown, diagrams
 
 📄 **See the file:**
 
-### 👉 `HEISEI_CHAIN_DOCUMENTATION.md`
+### 👉 [HEISEI_CHAIN_DOCUMENTATION.md](./HEISEI_CHAIN_DOCUMENTATION.md)
 
 ---
-
-<div align="center">
-
-# 🔥 Heisei Chain
-
-### Secure. Transparent. Verifiable.
-
-The future of disaster-relief supply auditing.
-
-</div>
 
